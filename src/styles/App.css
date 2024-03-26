@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Stolzl';
+    src: url(../assets/fonts/Stolzl/stolzl_regular.otf);
+}
+html {
+    z-index: -999;
+}
+
+body {
+    pointer-events: auto !important;
+    background-color: #cee5e3;
+    color: #2e2b28;
+    font-family: Stolzl;
+}
+
+header, nav, footer, a {
+    color: #2e2b28;
+}
+.App {
+    /* overflow:scroll; */
+    display: flex;
+    flex-direction: column;
+    /* height: 3000px; */
+}

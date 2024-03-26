@@ -1,0 +1,12 @@
+.header__schedule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    text-align: center;
+}
+@media(max-width: 768px) {
+    .header__schedule {
+        display: none;
+    }
+}

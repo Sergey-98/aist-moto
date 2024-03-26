@@ -1,0 +1,35 @@
+.about_block__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about_title {
+  font-size: 2rem;
+}
+.about_text__wrapper {
+  font-size: 1.1rem;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media(max-width: 1000px) {
+  .about_title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .about_text__wrapper {
+    font-size: 0.9rem;
+  }
+}
+
+@media(max-width: 400px) {
+  .about_text__wrapper {
+    font-size: 0.8rem;
+  }
+  .about_title {
+    font-size: 1.1rem;
+  }
+}

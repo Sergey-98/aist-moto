@@ -1,0 +1,18 @@
+.up_button {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    background-color: #8ca495;
+    border: 1px solid #2e2b28;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+}
+.up_button:hover {
+    cursor: pointer;
+    /* background-color: inherit; */
+}
+.up_button__lines {
+    margin: 0 auto;
+}

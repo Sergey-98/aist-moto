@@ -1,0 +1,26 @@
+.header__location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.header__location__textblock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header__location__logo {
+    width: 40px;
+    height: 40px;
+}
+.header__schedule__text {
+    text-align: center;
+}
+
+@media(max-width: 768px) {
+    .header__location {
+        display: none;
+    }
+}

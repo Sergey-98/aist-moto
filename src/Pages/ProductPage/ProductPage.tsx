@@ -1,0 +1,388 @@
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { useParams } from "react-router-dom"
+import classes from './ProductPage.module.css';
+import {data} from '../../data/data';
+import { Page } from 'types/types';
+
+export default function ProductPage() {
+  const [isEngine, setEngine] = useState(false);
+  const [isFuelSystem, setFuelSystem] = useState(false);
+  const [isTransmission, setTransmission] = useState(false);
+  const [isElectricalEquipment, setElectricalEquipment] = useState(false);
+  const [isFrame, setFrame] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Официальный дилер по продаже складской и строительной техники | АиСТ-С';
+  }, []);  
+    const {id} = useParams();
+    const param = id;
+    let dataP: Page = {};
+    for (let i = 0; i < data.length; i+=1) {
+      const d1 = data[i].pages;
+      for (let j = 0; j < d1.length; j+=1) {
+        const d2 = d1[j];
+        if (d2.url == param) {
+          dataP = d2;
+        }
+      }
+    }
+    const changeEngine = () => {
+      if (isEngine) {
+        setEngine(false);
+      } else {
+        setEngine(true);
+      }
+    }
+    const changeFuelSystem = () => {
+      if (isFuelSystem) {
+        setFuelSystem(false);
+      } else {
+        setFuelSystem(true);
+      }
+    }
+    const changeTransmission = () => {
+      if (isTransmission) {
+        setTransmission(false);
+      } else {
+        setTransmission(true);
+      }
+    }
+    const changeElectricalEquipment = () => {
+      if (isElectricalEquipment) {
+        setElectricalEquipment(false);
+      } else {
+        setElectricalEquipment(true);
+      }
+    }
+    const changeFrame = () => {
+      if (isFrame) {
+        setFrame(false);
+      } else {
+        setFrame(true);
+      }
+    }
+    // console.log(dataP.description?.engine.elemDesc);
+  return (
+    <main className={classes.catalog_product__container}>
+        <Helmet>
+          {/* <title>{dataP?.titleProduct} | АиСТ-С</title> */}
+          <meta
+          name="keywords"
+          content={`${dataP.titleProduct?.toLowerCase()}, ${dataP.titleProduct?.toLowerCase()} в Саратове, аист-с, aist-c, запчасти для погрузчиков, погрузчики лонкинг в саратове, вилочные погрузчики, погрузчики в саратове, аист-с в саратове, вилочные погрузчики в саратове, купить погрузчики лонкинг в саратове, Бирюзова 22, LONKING`}
+          />
+          <meta
+          name="description"
+          content={`Каталог (${dataP?.titleProduct}) - ООО "АиСТ-С" - официальный дилер спецтехники Лонкинг.`}
+          />
+        </Helmet>
+        <h3 className={classes.catalog_product_title}>{dataP?.titleProduct}</h3>
+        <div className={classes.catalog_product_wrapper}>
+          <img src = {dataP?.imgProduct} alt = {dataP?.titleProduct} className={classes.catalog_product_img}/>
+          <div className={classes.catalog_product__description_wrapper}>
+          <span className={classes.catalog_product__description_title_text}>Технические характеристики</span>
+            <div className={classes.catalog_product__description}>
+              <div className={classes.catalog_product__description_left}>
+                {
+                  dataP.description?.engine ? 
+                    <div className={classes.catalog_product__description_text}>
+                      <span className={classes.catalog_product_elem_title} onClick={changeEngine}>{dataP.description?.engine.title}</span>
+                      { isEngine ? 
+                        <div className={classes.catalog_product__text_description_columns}>
+                          {
+                            dataP.description?.engine.elemDesc.map((el) => {
+                              return(
+                                <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                  <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                  <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                </div>
+                              )
+                            })
+                          }
+                        </div> : null
+                      } 
+                    </div> 
+                    : null
+                }
+                {
+                  dataP.description?.fuelSystem ? 
+                    <div className={classes.catalog_product__description_text}>
+                      <span className={classes.catalog_product_elem_title} onClick={changeFuelSystem}>{dataP.description?.fuelSystem.title}</span>
+                      { isFuelSystem ? 
+                        <div className={classes.catalog_product__text_description_columns}>
+                          {
+                            dataP.description?.fuelSystem.elemDesc.map((el) => {
+                              return(
+                                <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                  <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                  <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                </div>
+                              )
+                            })
+                          }
+                        </div> : null
+                      } 
+                    </div> 
+                    : null
+                }
+                {
+                  dataP.description?.transmission ? 
+                    <div className={classes.catalog_product__description_text}>
+                      <span className={classes.catalog_product_elem_title} onClick={changeTransmission}>{dataP.description?.transmission.title}</span>
+                      { isTransmission ? 
+                        <div className={classes.catalog_product__text_description_columns}>
+                          {
+                            dataP.description?.transmission.elemDesc.map((el) => {
+                              return(
+                                <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                  <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                  <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                </div>
+                              )
+                            })
+                          }
+                        </div> : null
+                      } 
+                    </div> 
+                    : null
+                }
+                {
+                  dataP.description?.electricalEquipment ? 
+                    <div className={classes.catalog_product__description_text}>
+                      <span className={classes.catalog_product_elem_title} onClick={changeElectricalEquipment}>{dataP.description?.electricalEquipment.title}</span>
+                      { isElectricalEquipment ? 
+                        <div className={classes.catalog_product__text_description_columns}>
+                          {
+                            dataP.description?.electricalEquipment.elemDesc.map((el) => {
+                              return(
+                                <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                  <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                  <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                </div>
+                              )
+                            })
+                          }
+                        </div> : null
+                      } 
+                    </div> 
+                    : null
+                }
+                {
+                  dataP.description?.frame ? 
+                    <div className={classes.catalog_product__description_text}>
+                      <span className={classes.catalog_product_elem_title} onClick={changeFrame}>{dataP.description?.frame.title}</span>
+                      { isFrame ? 
+                        <div className={classes.catalog_product__text_description_columns}>
+                          {
+                            dataP.description?.frame.elemDesc.map((el) => {
+                              return(
+                                <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                  <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                  <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                </div>
+                              )
+                            })
+                          }
+                        </div> : null
+                      } 
+                    </div> 
+                    : null
+                }
+              </div>
+              <div className={classes.catalog_product__description_right}>
+              
+              </div>
+              
+              {/* {
+                dataP.description?.fuelSystem ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.fuelSystem.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.fuelSystem.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.transmission ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.transmission.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.transmission.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.electricalEquipment ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.electricalEquipment.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.electricalEquipment.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.frame ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.frame.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.frame.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.suspension ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.suspension.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.suspension.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.brakeSystem ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.brakeSystem.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.brakeSystem.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.overallDimensions ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.overallDimensions.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.overallDimensions.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.wheelWeight ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.wheelWeight.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.wheelWeight.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.externalLightingDevices ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.externalLightingDevices.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.externalLightingDevices.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              }
+              {
+                dataP.description?.instrumentPanel ? 
+                  <div className={classes.catalog_product__description_text}>
+                    <i>{dataP.description?.instrumentPanel.title}</i>
+                    <div className={classes.catalog_product__text_description}>
+                      {
+                        dataP.description?.instrumentPanel.elemDesc.map((el) => {
+                          return(
+                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div> 
+                  : null
+              } */}
+            </div>
+          </div>
+        </div>
+        {
+          (dataP.description?.manufacturer == 'LONKING') ? 
+          <div className={classes.catalog__description_lonking__wrapper}>
+          <div className={classes.catalog__description_lonking}>
+            <strong>Lonking</strong> - это мировой лидер в производстве строительной техники, известный своими инновационными разработками и надежными решениями. 
+          </div>
+          <div className={classes.catalog__description_lonking}>
+            Lonking предлагает широкий ассортимент строительной техники. Каждая модель отличается высокой производительностью, превосходным качеством и надежностью. Благодаря применению передовых технологий и инновационных решений, техника Лонкинг обладает высокой эффективностью и способна справиться с самыми сложными условиями и задачами.
+          </div>
+          <div className={classes.catalog__description_lonking}>
+            Мы не только предлагаем высококачественную технику Lonking, но и обеспечиваем полное сервисное обслуживание, поставку запчастей и техническую поддержку. Мы стремимся установить долгосрочные партнерские отношения с клиентами, предлагая им только самое лучшее.
+          </div>
+        </div>
+          : (dataP.description?.manufacturer == 'SHANMON') ?
+          <div className={classes.catalog__description_lonking__wrapper}>
+          <div className={classes.catalog__description_lonking}>
+            <strong>Shanmon</strong> - Компания, основным видом деятельности которой, является производство специальной техники, широко применяемой в строительной отрасли и активно используемой коммунальными предприятиями для решения сложных задач.
+          </div>
+          <div className={classes.catalog__description_lonking}>
+          Экскаваторы-погрузчики — многоцелевой транспорт, который применяется во многих областях и отраслях из-за универсальности и способности выполнять разнообразные задачи.
+          </div>
+          <div className={classes.catalog__description_lonking}>
+          Рассматриваемая техника универсальна. Ее применение облегчает выполнение строительных, транспортных и обслуживающих задач.
+          </div>
+        </div>
+        : null
+        }
+    </main>
+  );
+}
