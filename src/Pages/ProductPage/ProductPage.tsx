@@ -11,6 +11,12 @@ export default function ProductPage() {
   const [isTransmission, setTransmission] = useState(false);
   const [isElectricalEquipment, setElectricalEquipment] = useState(false);
   const [isFrame, setFrame] = useState(false);
+  const [isSuspension, setSuspension] = useState(false);
+  const [isBrakeSystem, setBrakeSystem] = useState(false);
+  const [isOverallDimensions, setOverallDimensions] = useState(false);
+  const [isWheelWeight, setWheelWeight] = useState(false);
+  const [isExternalLightingDevices, setExternalLightingDevices] = useState(false);
+  const [isInstrumentPanel, setInstrumentPanel] = useState(false);
 
   useEffect(() => {
     document.title = 'Официальный дилер по продаже складской и строительной техники | АиСТ-С';
@@ -60,6 +66,48 @@ export default function ProductPage() {
         setFrame(false);
       } else {
         setFrame(true);
+      }
+    }
+    const changeSuspension = () => {
+      if (isSuspension) {
+        setSuspension(false);
+      } else {
+        setSuspension(true);
+      }
+    }
+    const changeBrakeSystem = () => {
+      if (isBrakeSystem) {
+        setBrakeSystem(false);
+      } else {
+        setBrakeSystem(true);
+      }
+    }
+    const changeOverallDimensions = () => {
+      if (isOverallDimensions) {
+        setOverallDimensions(false);
+      } else {
+        setOverallDimensions(true);
+      }
+    }
+    const changeWheelWeight = () => {
+      if (isWheelWeight) {
+        setWheelWeight(false);
+      } else {
+        setWheelWeight(true);
+      }
+    }
+    const changeExternalLightingDevices = () => {
+      if (isExternalLightingDevices) {
+        setExternalLightingDevices(false);
+      } else {
+        setExternalLightingDevices(true);
+      }
+    }
+    const changeInstrumentPanel = () => {
+      if (isInstrumentPanel) {
+        setInstrumentPanel(false);
+      } else {
+        setInstrumentPanel(true);
       }
     }
     // console.log(dataP.description?.engine.elemDesc);
@@ -188,171 +236,135 @@ export default function ProductPage() {
                     </div> 
                     : null
                 }
+                {
+                  dataP.description?.suspension ? 
+                    <div className={classes.catalog_product__description_text}>
+                      <span className={classes.catalog_product_elem_title} onClick={changeSuspension}>{dataP.description?.suspension.title}</span>
+                      { isSuspension ? 
+                        <div className={classes.catalog_product__text_description_columns}>
+                          {
+                            dataP.description?.suspension.elemDesc.map((el) => {
+                              return(
+                                <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                  <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                  <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                </div>
+                              )
+                            })
+                          }
+                        </div> : null
+                      } 
+                    </div> 
+                    : null
+                }
               </div>
               <div className={classes.catalog_product__description_right}>
-              
+                {
+                    dataP.description?.brakeSystem ? 
+                      <div className={classes.catalog_product__description_text}>
+                        <span className={classes.catalog_product_elem_title} onClick={changeBrakeSystem}>{dataP.description?.brakeSystem.title}</span>
+                        { isBrakeSystem ? 
+                          <div className={classes.catalog_product__text_description_columns}>
+                            {
+                              dataP.description?.brakeSystem.elemDesc.map((el) => {
+                                return(
+                                  <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                    <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                    <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div> : null
+                        } 
+                      </div> 
+                      : null
+                  }
+                  {
+                    dataP.description?.overallDimensions ? 
+                      <div className={classes.catalog_product__description_text}>
+                        <span className={classes.catalog_product_elem_title} onClick={changeOverallDimensions}>{dataP.description?.overallDimensions.title}</span>
+                        { isOverallDimensions ? 
+                          <div className={classes.catalog_product__text_description_columns}>
+                            {
+                              dataP.description?.overallDimensions.elemDesc.map((el) => {
+                                return(
+                                  <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                    <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                    <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div> : null
+                        } 
+                      </div> 
+                      : null
+                  }
+                  {
+                    dataP.description?.wheelWeight ? 
+                      <div className={classes.catalog_product__description_text}>
+                        <span className={classes.catalog_product_elem_title} onClick={changeWheelWeight}>{dataP.description?.wheelWeight.title}</span>
+                        { isWheelWeight ? 
+                          <div className={classes.catalog_product__text_description_columns}>
+                            {
+                              dataP.description?.wheelWeight.elemDesc.map((el) => {
+                                return(
+                                  <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                    <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                    <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div> : null
+                        } 
+                      </div> 
+                      : null
+                  }
+                  {
+                    dataP.description?.externalLightingDevices ? 
+                      <div className={classes.catalog_product__description_text}>
+                        <span className={classes.catalog_product_elem_title} onClick={changeExternalLightingDevices}>{dataP.description?.externalLightingDevices.title}</span>
+                        { isExternalLightingDevices ? 
+                          <div className={classes.catalog_product__text_description_columns}>
+                            {
+                              dataP.description?.externalLightingDevices.elemDesc.map((el) => {
+                                return(
+                                  <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                    <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                    <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div> : null
+                        } 
+                      </div> 
+                      : null
+                  }
+                  {
+                    dataP.description?.instrumentPanel ? 
+                      <div className={classes.catalog_product__description_text}>
+                        <span className={classes.catalog_product_elem_title} onClick={changeInstrumentPanel}>{dataP.description?.instrumentPanel.title}</span>
+                        { isInstrumentPanel ? 
+                          <div className={classes.catalog_product__text_description_columns}>
+                            {
+                              dataP.description?.instrumentPanel.elemDesc.map((el) => {
+                                return(
+                                  <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                    <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                    <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div> : null
+                        } 
+                      </div> 
+                      : null
+                  }
               </div>
-              
-              {/* {
-                dataP.description?.fuelSystem ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.fuelSystem.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.fuelSystem.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.transmission ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.transmission.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.transmission.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.electricalEquipment ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.electricalEquipment.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.electricalEquipment.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.frame ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.frame.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.frame.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.suspension ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.suspension.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.suspension.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.brakeSystem ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.brakeSystem.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.brakeSystem.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.overallDimensions ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.overallDimensions.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.overallDimensions.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.wheelWeight ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.wheelWeight.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.wheelWeight.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.externalLightingDevices ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.externalLightingDevices.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.externalLightingDevices.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              }
-              {
-                dataP.description?.instrumentPanel ? 
-                  <div className={classes.catalog_product__description_text}>
-                    <i>{dataP.description?.instrumentPanel.title}</i>
-                    <div className={classes.catalog_product__text_description}>
-                      {
-                        dataP.description?.instrumentPanel.elemDesc.map((el) => {
-                          return(
-                            <div key={el.titleElem}>{el.titleElem}: {el.meaning}</div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div> 
-                  : null
-              } */}
             </div>
           </div>
         </div>
