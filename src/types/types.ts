@@ -66,10 +66,16 @@ export type Description = {
   engine: object
 }
 
+type mainDescription = {
+  desc: string,
+  img: HTMLImageElement
+}
+
 export type Page = {
   titleProduct?: string,
   nameLinkProduct?: string,
   imgProduct?: string,
+  mainDescription?: mainDescription[],
   description?: any,
   url?: string,
   manufacturer?: string

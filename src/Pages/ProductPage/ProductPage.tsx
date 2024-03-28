@@ -126,7 +126,21 @@ export default function ProductPage() {
         </Helmet>
         <h3 className={classes.catalog_product_title}>{dataP?.titleProduct}</h3>
         <div className={classes.catalog_product_wrapper}>
-          <img src = {dataP?.imgProduct} alt = {dataP?.titleProduct} className={classes.catalog_product_img}/>
+          {
+            {
+              dataP.mainDescription.map((elem) => {
+                return (
+                  <div>
+                    <span>
+
+                    </span>
+                    <img src = {dataP?.imgProduct} alt = {dataP?.titleProduct} className={classes.catalog_product_img}/>
+                  </div>
+                )
+              })
+            }
+          }
+          {/* <img src = {dataP?.imgProduct} alt = {dataP?.titleProduct} className={classes.catalog_product_img}/> */}
           <div className={classes.catalog_product__description_wrapper}>
           <span className={classes.catalog_product__description_title_text}>Технические характеристики</span>
             <div className={classes.catalog_product__description}>
