@@ -44,7 +44,7 @@
   to {width: 100%;}
 }
 @keyframes blinkTextCursor {
-  from {border-right-color: #2e2b28;}
+  from {border-right-color: #191919;}
   to {border-right-color: transparent;}
 }
 

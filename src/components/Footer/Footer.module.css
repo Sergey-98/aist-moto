@@ -1,5 +1,5 @@
 .footer_container {
-  border-top: 3px solid #2e2b28;;
+  border-top: 3px solid #191919;;
   padding-top: 1%;
   display: flex;
   align-items: center;
@@ -44,12 +44,12 @@
 
 .footer__navbar_link {
   text-decoration: none;
-  color: black;
+  color: #191919;
 }
 
 .footer__navbar_link:hover {
   cursor: pointer;
-  color: #0b8500;
+  color: #e5e5e5;
 }
 
 .adress__text {
@@ -77,7 +77,7 @@
   }
   .footer_container__contacts, .footer_container__adress, .footer_container__info {
     width: 55%;
-    border-top: 1px solid #2e2b28;
+    border-top: 1px solid #191919;
     padding-top: 1rem;
   }
 }
@@ -90,7 +90,7 @@
 
  .footer_container__contacts, .footer_container__adress, .footer_container__info {
     width: 55%;
-    border-top: 1px solid #2e2b28;
+    border-top: 1px solid #191919;
     padding-top: 1rem;
   }
 

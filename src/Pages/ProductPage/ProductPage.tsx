@@ -17,6 +17,7 @@ export default function ProductPage() {
   const [isWheelWeight, setWheelWeight] = useState(false);
   const [isExternalLightingDevices, setExternalLightingDevices] = useState(false);
   const [isInstrumentPanel, setInstrumentPanel] = useState(false);
+  const [isСargoPlatform, setСargoPlatform] = useState(false);
 
   useEffect(() => {
     document.title = 'Официальный дилер по продаже складской и строительной техники | АиСТ-С';
@@ -110,6 +111,13 @@ export default function ProductPage() {
         setInstrumentPanel(true);
       }
     }
+    const changeСargoPlatform = () => {
+      if (isСargoPlatform) {
+        setСargoPlatform(false);
+      } else {
+        setСargoPlatform(true);
+      }
+    }
     // console.log(dataP.description?.engine.elemDesc);
   return (
     <main className={classes.catalog_product__container}>
@@ -126,21 +134,18 @@ export default function ProductPage() {
         </Helmet>
         <h3 className={classes.catalog_product_title}>{dataP?.titleProduct}</h3>
         <div className={classes.catalog_product_wrapper}>
-          {
             {
-              dataP.mainDescription.map((elem) => {
+              dataP.mainDescription?.map((elem, id) => {
                 return (
-                  <div>
-                    <span>
-
+                  <div key={id+100} className={classes.catalog_main_desc}>
+                    <span className={classes.catalog_main_desc_text}>
+                      {elem.desc}
                     </span>
-                    <img src = {dataP?.imgProduct} alt = {dataP?.titleProduct} className={classes.catalog_product_img}/>
+                    <img src = {elem.photo} alt = {dataP?.titleProduct} className={classes.catalog_main_desc_img}/>
                   </div>
                 )
               })
             }
-          }
-          {/* <img src = {dataP?.imgProduct} alt = {dataP?.titleProduct} className={classes.catalog_product_img}/> */}
           <div className={classes.catalog_product__description_wrapper}>
           <span className={classes.catalog_product__description_title_text}>Технические характеристики</span>
             <div className={classes.catalog_product__description}>
@@ -378,37 +383,31 @@ export default function ProductPage() {
                       </div> 
                       : null
                   }
+                  {
+                    dataP.description?.cargoPlatform ? 
+                      <div className={classes.catalog_product__description_text}>
+                        <span className={classes.catalog_product_elem_title} onClick={changeСargoPlatform}>{dataP.description?.cargoPlatform.title}</span>
+                        { isСargoPlatform ? 
+                          <div className={classes.catalog_product__text_description_columns}>
+                            {
+                              dataP.description?.cargoPlatform.elemDesc.map((el) => {
+                                return(
+                                  <div className={classes.text_description_columns_item_wrapper} key={el.titleElem}>
+                                    <div className={classes.text_description_columns_item}>{el.titleElem}</div>
+                                    <div className={classes.text_description_columns_item_right}>{el.meaning}</div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div> : null
+                        } 
+                      </div> 
+                      : null
+                  }
               </div>
             </div>
           </div>
         </div>
-        {
-          (dataP.description?.manufacturer == 'LONKING') ? 
-          <div className={classes.catalog__description_lonking__wrapper}>
-          <div className={classes.catalog__description_lonking}>
-            <strong>Lonking</strong> - это мировой лидер в производстве строительной техники, известный своими инновационными разработками и надежными решениями. 
-          </div>
-          <div className={classes.catalog__description_lonking}>
-            Lonking предлагает широкий ассортимент строительной техники. Каждая модель отличается высокой производительностью, превосходным качеством и надежностью. Благодаря применению передовых технологий и инновационных решений, техника Лонкинг обладает высокой эффективностью и способна справиться с самыми сложными условиями и задачами.
-          </div>
-          <div className={classes.catalog__description_lonking}>
-            Мы не только предлагаем высококачественную технику Lonking, но и обеспечиваем полное сервисное обслуживание, поставку запчастей и техническую поддержку. Мы стремимся установить долгосрочные партнерские отношения с клиентами, предлагая им только самое лучшее.
-          </div>
-        </div>
-          : (dataP.description?.manufacturer == 'SHANMON') ?
-          <div className={classes.catalog__description_lonking__wrapper}>
-          <div className={classes.catalog__description_lonking}>
-            <strong>Shanmon</strong> - Компания, основным видом деятельности которой, является производство специальной техники, широко применяемой в строительной отрасли и активно используемой коммунальными предприятиями для решения сложных задач.
-          </div>
-          <div className={classes.catalog__description_lonking}>
-          Экскаваторы-погрузчики — многоцелевой транспорт, который применяется во многих областях и отраслях из-за универсальности и способности выполнять разнообразные задачи.
-          </div>
-          <div className={classes.catalog__description_lonking}>
-          Рассматриваемая техника универсальна. Ее применение облегчает выполнение строительных, транспортных и обслуживающих задач.
-          </div>
-        </div>
-        : null
-        }
     </main>
   );
 }

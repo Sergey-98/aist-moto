@@ -15,7 +15,7 @@
   border-radius: 40px;
   padding: 10px;
   border: none;
-  background: #2e2b28;
+  background: #e5e5e5;
   -webkit-box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
   position: fixed;
@@ -40,6 +40,7 @@
   opacity: 1;
   visibility: visible;
   position: relative;
+  color: #191919;
 }
 
 .pulse_button__icon {
@@ -57,7 +58,7 @@
   width: 100%;
   height: 25px;
   font: 10px 'Open Sans', sans-serif;
-  color: #fff;
+  color: #e5e5e5;
   text-align: center;
   line-height: 1;
   opacity: 0;
@@ -70,7 +71,7 @@
 }
 
 .pulse_button__rings {
-  border: 1px solid #2e2b28;
+  border: 1px solid #e5e5e5;
   position: absolute;
   top: 0;
   left: 0;

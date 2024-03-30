@@ -6,7 +6,7 @@
     .b_hamburger .h_line {
       width: 50px;
       height: 3px;
-      background-color: #2E2B28;
+      background-color: #191919;
       display: block;
       margin: 10px auto;
       transition: all 0.3s ease-in-out;
@@ -32,7 +32,7 @@
       opacity: 0;
     }
     .b_hamburger.is_active .h_line {
-      background-color: #cee5e3;
+      background-color: #b1a7a5;
     }
     .b_hamburger.is_active .line1 {
       transform: translateY(13px) rotate(45deg);

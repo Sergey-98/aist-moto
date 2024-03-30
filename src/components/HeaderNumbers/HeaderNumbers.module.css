@@ -7,7 +7,7 @@
 
 .header__numbers__textlink:hover {
     cursor: pointer;
-    color: #0b8500;
+    color: #e5e5e5;
 }
 
 @media(max-width: 768px) {

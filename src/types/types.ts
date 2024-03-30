@@ -68,14 +68,14 @@ export type Description = {
 
 type mainDescription = {
   desc: string,
-  img: HTMLImageElement
+  photo: string
 }
 
 export type Page = {
   titleProduct?: string,
   nameLinkProduct?: string,
   imgProduct?: string,
-  mainDescription?: mainDescription[],
+  mainDescription?: Array<mainDescription>,
   description?: any,
   url?: string,
   manufacturer?: string

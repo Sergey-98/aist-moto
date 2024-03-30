@@ -20,9 +20,9 @@ const windowUp = () => {
 
     return scroll > 300 ? <button className={style.up_button} onClick={windowUp}>
     <svg className={style.up_button__lines} viewBox="0 0 30 45">
-        <line x1="15" y1="5" x2="15" y2="35" stroke="#2e2b28" strokeWidth="1.5"/>
-        <line x1="15" y1="5" x2="5" y2="20" stroke="#2e2b28" strokeWidth="1.5"/>
-        <line x1="15" y1="5" x2="25" y2="20" stroke="#2e2b28" strokeWidth="1.5"/>
+        <line x1="15" y1="5" x2="15" y2="35" stroke="#5b5553" strokeWidth="1.5"/>
+        <line x1="15" y1="5" x2="5" y2="20" stroke="#5b5553" strokeWidth="1.5"/>
+        <line x1="15" y1="5" x2="25" y2="20" stroke="#5b5553" strokeWidth="1.5"/>
     </svg>
   </button> : null
 }

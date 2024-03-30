@@ -1,6 +1,6 @@
 .header__navbar {
-    border-top: 1.5px solid #2e2b28;
-    border-bottom: 1.5px solid #2e2b28;
+    border-top: 1.5px solid #191919;
+    border-bottom: 1.5px solid #191919;
 }
 
 .header__navbar_links {
@@ -18,7 +18,7 @@
 
 .header__navbar_link:hover {
     cursor: pointer;
-    color: #0b8500;
+    color: #e5e5e5;
 }
 
 @media (max-width: 768px) {
@@ -26,7 +26,7 @@
         display: none;
         z-index: 100;
         position: absolute;
-        background: #2e2b28;
+        background: #191919;
         right: -100%;
         width: 50%;
     }
@@ -49,7 +49,7 @@
         gap: 25px;
     }
     .header__navbar_link {
-        color: #cee5e3;
+        color: #b1a7a5;
     }
 }
 
