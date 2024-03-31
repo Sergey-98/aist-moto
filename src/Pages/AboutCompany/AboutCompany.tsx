@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import classes from './AboutCompany.module.css';
 import AboutBlock from '../../components/aboutCompanyComponent/AboutBlock/AboutBlock'
-import MainAdvantages from 'components/MainComponents/MainAdvantages/MainAdvantages';
-import MainAdvantagesShanmon from 'components/MainComponents/MainAdvantagesShanmon/MainAdvantagesShanmon';
+import MainAdvantagesBenda from 'components/aboutCompanyComponent/MainAdvantagesBenda/MainAdvantagesBenda';
+import MainAdvantagesARIIC from 'components/aboutCompanyComponent/MainAdvantagesARIIC/MainAdvantagesARIIC';
+import MainAdvantagesChangjiang from 'components/aboutCompanyComponent/MainAdvantagesChangjiang/MainAdvantagesChangjiang';
 
 export default function AboutCompany() {
   useEffect(() => {
@@ -23,8 +24,9 @@ export default function AboutCompany() {
         />
       </Helmet>
       <AboutBlock/>
-      <MainAdvantages/>
-      <MainAdvantagesShanmon/>
+      <MainAdvantagesBenda/>
+      <MainAdvantagesARIIC/>
+      <MainAdvantagesChangjiang/>
     </main>
   );
 }

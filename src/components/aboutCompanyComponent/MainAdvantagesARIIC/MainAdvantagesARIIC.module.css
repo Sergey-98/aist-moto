@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 .main_advantages__img {
   width: 45vw;
@@ -61,6 +62,7 @@
   }
   .main_advantages__img_and_text {
     flex-wrap: wrap;
+    gap: 3rem;
   }
   .main_advantages__text {
     font-size: 0.9rem;
